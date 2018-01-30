@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ 
+  <title>Trivia Game</title>
+
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<div id="container">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="left-side">
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="questions">
+	<h1 class="headerText">Marvelous Marvel Movie Madness</h1>
+	<p>Can you correctly answer the following 10 questions in 90 seconds?</p>
+  <br>
+  <p id=results></p>
+	<div id="timeRemaining">Time Remaining: </div>
+	<br>
+		<div id="questions">
+			<p> Which superhero did Stan Lee create because he thought it would be fun to make a character no one would like?</p>
+  		<label><input type="radio" name="q1" value="0"> Batman</label>
+  		<label><input type="radio" name="q1" value="0"> Hulk</label>
+  		<label><input type="radio" name="q1" value="1"> Iron Man</label>
+	    <br>
+
+	    <p>What color was the Hulk when originally introduced?</p>
+  		<label><input type="radio" name="q2" value="1"> grey</label>
+  		<label><input type="radio" name="q2" value="0"> green</label>
+  		<label><input type="radio" name="q2" value="0"> blue</label>
+	    <br>
+
+      <p>In the 80's, Marvel bought the idea for Spider-Man's black costume from a fan for how much money?</p>
+      <label><input type="radio" name="q3" value="0"> $20</label>
+      <label><input type="radio" name="q3" value="1"> $220</label>
+      <label><input type="radio" name="q3" value="0"> $2,200</label>
+      <br>
+
+      <p>G.I. Joe was originally intended as a new direction for which Marvel character?</p>
+      <label><input type="radio" name="q4" value="0"> Wolverine</label>
+      <label><input type="radio" name="q4" value="1"> Nick Fury</label>
+      <label><input type="radio" name="q4" value="0"> Captain America</label>
+      <br>
+
+      <p>Who looked into buying Marvel Comics in the '90's because he wanted to play Spider-Man in a movie?</p>
+      <label><input type="radio" name="q5" value="0"> Donald Trump</label>
+      <label><input type="radio" name="q5" value="1"> Michael Jackson</label>
+      <label><input type="radio" name="q5" value="0"> David Bowie</label>
+      <br>
+
+      <p>Loki's appeared in the Marvel Universe how many years before his brother Thor?</p>
+      <label><input type="radio" name="q6" value="0"> 2</label>
+      <label><input type="radio" name="q6" value="0"> 5</label>
+      <label><input type="radio" name="q6" value="1"> 13</label>
+      <br>
+
+      <p>The author of which novel turned show was written by an author who reguarly wrote into Marvel's Letter Columns in the '60's?</p>
+      <label><input type="radio" name="q7" value="1"> Game of Thrones</label>
+      <label><input type="radio" name="q7" value="0"> Arrow</label>
+      <label><input type="radio" name="q7" value="0"> Vikings</label>
+      <br>
+
+      <p>Which actor turned down their Marvel character role multiple times before accepting?</p>
+      <label><input type="radio" name="q8" value="1"> Chris Evans/Captain America</label>
+      <label><input type="radio" name="q8" value="0"> Chris Hemsworth/Thor</label>
+      <label><input type="radio" name="q8" value="0"> Robert Downey, Jr./Iron Man</label>
+      <br>
+
+      <p>Which Marvel character was inspired by a 1968 Beatles song?</p>
+      <label><input type="radio" name="q9" value="0"> Howard the Duck</label>
+      <label><input type="radio" name="q9" value="0"> Dogpool</label>
+      <label><input type="radio" name="q9" value="1"> Rocket Racoon</label>
+      <br>
+
+      <p>Marvel got around a law that increases taxes on toys that resemble humans by claiming that X-Men figures were mutants, not humans?</p>
+      <label><input type="radio" name="q10" value="1"> True</label>
+      <label><input type="radio" name="q10" value="0"> false</label>
+      <br>
+      </div>
+    </div>
+    </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+  	var number = 90;
+  	var intervalId;
+	  var correct = 0;
+  	var incorrect = 0;
+    var unanswered = 0;
+    var radios = [];
+  	var value;
+   ;
+  
+  	function run() {
+  		intervalId = setInterval(decrement, 1000);
+  	}
+
+  	function decrement() {
+  		number--;
+  		$("#timeRemaining").html("Time Remaining: " + number + " seconds");
+  		if(number===0) {
+  			stop();
+        checkAnswers();
+  		}
+  	}
+
+  	function stop() {
+  		clearInterval(intervalId);
+      number = 0;
+      $("#timeRemaining").html("Time Remaining: " + number + " seconds");
+   	}
+
+    function checkAnswers () {
+		var question1 = document.getElementsByName("q1");
+    console.log(question1);
+    var q1 = $('input[name="q1"]:checked').val();
+    console.log(q1);
+      if(q1==1) {
+        correct++;
+      } else if(q1==0) {
+        incorrect++;
+      } else {
+        unanswered++;
+      }
+      console.log(correct);
+      console.log(incorrect);
+
+     var question2 = document.getElementsByName("q2");
+     console.log(question2);
+     var q2 = $('input[name="q2"]:checked').val();
+     console.log(q2);
+      if(q2==1) {
+        correct++;
+      } else if(q2==0) {
+        incorrect++;
+      } else {
+        unanswered++;
+      }
+       console.log(correct);
+       console.log(incorrect);
+
+     var question3 = document.getElementsByName("q3");
+     console.log(question3);
+     var q3 = $('input[name="q3"]:checked').val();
+     console.log(q3);
+      if(q3==1) {
+        correct++;
+      } else if(q3==0) {
+        incorrect++;
+      } else {
+        unanswered++;
+      }
+      console.log(correct);
+      console.log(incorrect);
+      
+
+     var question4 = document.getElementsByName("q4");
+     console.log(question4);
+     var q4 = $('input[name="q4"]:checked').val();
+     console.log(q4);
+      if(q4==1) {
+        correct++;
+      } else if(q4==0) {
+        incorrect++;
+      } else {
+        unanswered++;
+      }
+      console.log(correct);
+      console.log(incorrect);
+
+     var question5 = document.getElementsByName("q5");
+     console.log(question5);
+     var q5 = $('input[name="q5"]:checked').val();
+     console.log(q5);
+      if(q5==1) {
+        correct++;
+      } else if(q5==0) {
+        incorrect++;
+      } else {
+        unanswered++;
+      }
+      console.log(correct);
+      console.log(incorrect);
+
+     var question6 = document.getElementsByName("q6");
+     console.log(question6);
+     var q6 = $('input[name="q6"]:checked').val();
+     console.log(q6);
+      if(q6==1) {
+        correct++;
+      } else if(q6==0) {
+        incorrect++;
+      } else {
+        unanswered++;
+      }
+      console.log(correct);
+      console.log(incorrect);
+    
+     var question7 = document.getElementsByName("q7");
+     console.log(question7);
+     var q7 = $('input[name="q7"]:checked').val();
+     console.log(q7);
+      if(q7==1) {
+        correct++;
+      } else if(q7==0) {
+        incorrect++;
+      } else {
+        unanswered++;
+      }
+      console.log(correct);
+      console.log(incorrect);
+
+     var question8 = document.getElementsByName("q8");
+     console.log(question8);
+     var q8 = $('input[name="q8"]:checked').val();
+     console.log(q8);
+      if(q8==1) {
+        correct++;
+      } else if(q8==0) {
+        incorrect++;
+      } else {
+        unanswered++;
+      }
+      console.log(correct);
+      console.log(incorrect);
+
+     var question9 = document.getElementsByName("q9");
+     console.log(question9);
+     var q9 = $('input[name="q9"]:checked').val();
+     console.log(q9);
+      if(q9==1) {
+        correct++;
+      } else if(q9==0) {
+        incorrect++;
+      } else {
+        unanswered++;
+      }
+      console.log(correct);
+      console.log(incorrect);
+
+     var question10 = document.getElementsByName("q10");
+     console.log(question8);
+     var q10 = $('input[name="q10"]:checked').val();
+     console.log(q10);
+      if(q10==1) {
+        correct++;
+      } else if(q10==0) {
+        incorrect++;
+      } else {
+        unanswered++;
+      }
+      console.log(correct);
+      console.log(incorrect);
+      $("#results").text("Number Correct: " + correct + "    |    Number Incorrect: " + incorrect + "    |    Number Unanswered: " + unanswered);
+  	}
+
+  	run();
+
+
+  </script>
+
+</body>
+
+</html>

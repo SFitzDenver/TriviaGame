@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ 
+  <title>Trivia Game</title>
+
+<!--   <link rel="stylesheet" type="text/css" href="style.css"> -->
+<meta charset="utf-8">
+		
+<!-- 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+</head>
+
+<body>
+
+	<div id="container">
+
+	<h1>Marvelous Marvel Fun Facts</h1>
+	<br>
+	<div id="timeRemaining">Time Remaining: </div>
+	<br>
+		<div id="questions">
+			<p> Which superhero did Stan Lee create because he thought it would be fun to make a character no one would like?</p>
+	<!-- <form action=""> -->
+  		<label><input type="radio" class="radio1" name="q1" value="1"> Batman</label>
+  		<label><input type="radio" class="radio2" name="q1" value="2"> Hulk</label>
+  		<label><input type="radio" class="radio3" name="q1" value="3"> Iron Man</label>
+  		</div>	
+<!-- 	</form> -->
+	<br>
+	<p>Question 2: What color was the Hulk when originally introduced?</p>
+	<form action="">
+  		<input type="radio" name="gender" value="1"> grey
+  		<input type="radio" name="gender" value="0"> green
+  		<input type="radio" name="gender" value="0"> blue
+	</form>
+	<br>
+	<p>Question 3: In the 80's, Marvel bought the idea for Spider-Man's black costume from a fan for how much money?</p>
+	<form action="">
+  		<input type="radio" name="gender" value="male"> $20
+  		<input type="radio" name="gender" value="female"> $220
+  		<input type="radio" name="gender" value="other"> $2,200
+	</form>
+	<br>
+	<p>Question 4: G.I. Joe was originally intended as a new direction for whom?</p>
+	<form action="">
+  		<input type="radio" name="gender" value="male"> Captain America
+  		<input type="radio" name="gender" value="female"> Wolverine
+  		<input type="radio" name="gender" value="other"> Nick Fury
+	</form>
+	<br>
+	<p>Question 5: Who looked into buying Marvel Comics in the '90's because he wanted to play Spider-Man in a movie?</p>
+	<form action="">
+  		<input type="radio" name="gender" value="male"> Donald Trump
+  		<input type="radio" name="gender" value="female"> Michael Jackson
+  		<input type="radio" name="gender" value="other"> David Bowie
+	</form>
+	<br>
+	<p>Question 6: Loki's appeared in the Marvel Universe how many years before his brother Thor?</p>
+	<form action="">
+  		<input type="radio" name="gender" value="male"> 13
+  		<input type="radio" name="gender" value="female"> 2
+  		<input type="radio" name="gender" value="other"> 5
+	</form>
+	<br>
+	<p>Question 7: What...</p>
+	<form action="">
+  		<input type="radio" name="gender" value="male"> 1
+  		<input type="radio" name="gender" value="female"> 2
+  		<input type="radio" name="gender" value="other"> 3
+	</form>
+	<br>
+	<p>Question 8: What...</p>
+	<form action="">
+  		<input type="radio" name="gender" value="male"> 1
+  		<input type="radio" name="gender" value="female"> 2
+  		<input type="radio" name="gender" value="other"> 3
+	</form>
+	<br>
+	<p>Question 9: What...</p>
+	<form action="">
+  		<input type="radio" name="gender" value="male"> 1
+  		<input type="radio" name="gender" value="female"> 2
+  		<input type="radio" name="gender" value="other"> 3
+	</form>
+	<br>
+	<p>Question 10: What...</p>
+	<form action="">
+  		<input type="radio" name="gender" value="male"> 1
+  		<input type="radio" name="gender" value="female"> 2
+  		<input type="radio" name="gender" value="other"> 3
+	</form>
+
+
+	</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+  	var number = 30;
+  	var intervalId;
+	var correct = 0
+  	var incorrect = 0
+  	var value;
+  
+  	
+
+  	function run() {
+  		intervalId = setInterval(decrement, 1000);
+  	}
+  	function decrement() {
+  		number--;
+  		$("#timeRemaining").html("Time Remaining: " + number + " seconds");
+  		if(number===0) {
+  			stop();
+  		}
+  	}
+
+  	function stop() {
+  		clearInterval(intervalId);
+  	}
+
+  	// function checkAnswers() {
+  	// 	$(document).ready(function() {
+  	// 		$("#radio_3").change(function() {
+  	// 			if ($("#radio_3").is(":checked")) {
+  	// 				correct++;
+  	// 				$("#questions").show();
+  	// 				console.log(correct);
+			// 	} 
+			// 	else if {
+			// 		incorrect++;
+			// 		console.log(incorrect);
+			// 	}
+
+  	// 		})
+  	// 	})
+  	// }
+
+  // 	function checkAnswers () {
+		// var radios = document.getElementsByName("q1");
+		// for (var i = 0; i < radios.lenth; i++) {
+		// 	if(radios[i].checked) {
+		// 		if((radios[i].value) == 1) {
+		// 			console.log("correct");
+		// 			correct++;
+		// 			alert(radios[i].value)
+		// 		} else {
+		// 			console.log("incorrect");
+		// 			incorrect++;
+		// 		}
+		// 		console.log(correct);
+		// 		console.log(incorrect);
+		// 	}
+		// }
+		
+  // 	}
+
+  		function checkAnswers() {
+        var value;
+  		var value = $('input[name="radio1"]:radio').val();
+  				console.log(value);
+  			}
+  		
+  			// var radios = document.querySelector('input[name="q1"]:checked').value;
+  			// for (var i = 0; i < radios.length; i++) {
+  			// 	if ((radios[i].value) === 1) {
+  			// 		console.log("correct");
+  			// 	} else {
+  			// 		console.log("incorrect");
+  			// 	}
+  			// }
+  		
+
+  	run();
+
+  	checkAnswers();
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
